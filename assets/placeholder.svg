@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-label="Missing image">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#1e1e1e"/>
+      <stop offset="1" stop-color="#2b2b2b"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#3a3a3a" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <rect width="1200" height="800" fill="url(#grid)" opacity="0.55"/>
+  <rect x="60" y="60" width="1080" height="680" rx="18" fill="none" stroke="#1e90ff" stroke-width="4" opacity="0.9"/>
+  <g fill="#d0d0d0" font-family="Segoe UI, Roboto, Arial, sans-serif" text-anchor="middle">
+    <text x="600" y="380" font-size="44" font-weight="700">Image not found</text>
+    <text x="600" y="440" font-size="22" opacity="0.85">Add your files under <tspan fill="#1e90ff" font-weight="600">images/</tspan>, <tspan fill="#1e90ff" font-weight="600">slides/</tspan>, and <tspan fill="#1e90ff" font-weight="600">textures/</tspan></text>
+    <text x="600" y="500" font-size="18" opacity="0.75">This is a placeholder so the layout still works.</text>
+  </g>
+</svg>
+

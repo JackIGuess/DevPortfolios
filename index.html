@@ -1,0 +1,481 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Game Dev Portfolio Services | Jacques Gwenin</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="service-site">
+<script>
+  window.__IMG_FALLBACK__ = "assets/placeholder.svg";
+  window.__preferWebp = function preferWebp(src) {
+    const raw = String(src ?? "");
+    return raw.replace(/\.(png|jpe?g)$/i, ".webp");
+  };
+  window.__imgFallback = function imgFallback(imgEl) {
+    if (!imgEl) return;
+    const original = imgEl.dataset && imgEl.dataset.originalSrc;
+    const tried = imgEl.dataset && imgEl.dataset.triedOriginal === "1";
+    if (original && !tried) {
+      imgEl.dataset.triedOriginal = "1";
+      imgEl.src = original;
+      return;
+    }
+    const fallback = (imgEl.dataset && imgEl.dataset.fallback) || window.__IMG_FALLBACK__;
+    if (imgEl.src && imgEl.src.endsWith(fallback)) return;
+    imgEl.onerror = null;
+    imgEl.src = fallback;
+  };
+</script>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__brand" href="#hero" aria-label="DEV PORTFOLIOS - Home">
+      <span class="site-header__brand-text"><span class="site-header__brand-dev">DEV</span><span class="site-header__brand-portfolios"> PORTFOLIOS</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <ul class="site-nav__list">
+        <li><a href="#examples">Examples</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact" class="site-nav__cta">Get Started</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="service-main">
+
+  <!-- Hero -->
+  <section id="hero" class="service-section service-section--hero" aria-labelledby="hero-heading">
+    <div class="service-container service-container--hero">
+      <div class="hero-layout">
+        <div class="hero-layout__content">
+          <div class="home-hero home-hero--left">
+            <h1 id="hero-heading" class="home-hero__name">Portfolio websites for <span class="home-hero__accent">game dev students</span></h1>
+            <p class="home-hero__lead">Professional. Customisable. Fast. Stand out to employers with a portfolio that shows off your best work.</p>
+
+            <div class="quick-links hero-ctas">
+              <a class="quick-link quick-link--primary" href="#examples">View Examples</a>
+              <a class="quick-link quick-link--ghost" href="#pricing">Pricing</a>
+            </div>
+
+            <ul class="hero-features" aria-label="Key features">
+              <li class="hero-features__item">
+                <span class="hero-features__icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="22" height="22" focusable="false">
+                    <path d="M13 2.05v2.02c3.95.49 7 3.85 7 7.93 0 .75-.09 1.48-.25 2.17l1.86 1.08a10.03 10.03 0 0 0 .39-3.25c0-5.22-3.98-9.53-9-9.95zM12 19c-3.87 0-7-3.13-7-7 0-3.07 1.99-5.68 4.75-6.61V4.03C5.03 5.16 2 8.63 2 12c0 5.52 4.48 10 10 10 1.01 0 1.98-.15 2.89-.42l-1.64-1.9A7.96 7.96 0 0 1 12 19zm-1-8V7h2v4h3l-4 4-4-4h3z"/>
+                  </svg>
+                </span>
+                <strong class="hero-features__title">Fast Turnaround</strong>
+                <span class="hero-features__detail">5-14 days delivery</span>
+              </li>
+              <li class="hero-features__item">
+                <span class="hero-features__icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="22" height="22" focusable="false">
+                    <path d="M8 4l-6 8 6 8V4zm8 0v16l6-8-6-8z"/>
+                  </svg>
+                </span>
+                <strong class="hero-features__title">Student Friendly</strong>
+                <span class="hero-features__detail">Affordable pricing</span>
+              </li>
+              <li class="hero-features__item">
+                <span class="hero-features__icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="22" height="22" focusable="false">
+                    <path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm0 2v16h10V4H7zm5 14a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5z"/>
+                  </svg>
+                </span>
+                <strong class="hero-features__title">Mobile Responsive</strong>
+                <span class="hero-features__detail">Looks great everywhere</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="hero-layout__preview">
+          <figure class="hero-monitor">
+            <div class="hero-monitor__device">
+              <div class="hero-monitor__bezel">
+                <div class="hero-monitor__screen">
+                  <img
+                    class="hero-monitor__image"
+                    src="slides/Template1-1.PNG"
+                    alt="Preview of the Slide Navigator portfolio landing page"
+                    width="1280"
+                    height="720"
+                    decoding="async"
+                    data-fallback="assets/placeholder.svg"
+                    onerror="__imgFallback(this)"
+                  />
+                </div>
+              </div>
+              <div class="hero-monitor__chin" aria-hidden="true"></div>
+              <div class="hero-monitor__stand" aria-hidden="true">
+                <div class="hero-monitor__neck"></div>
+                <div class="hero-monitor__base"></div>
+              </div>
+            </div>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Examples -->
+  <section id="examples" class="service-section service-section--examples" aria-labelledby="examples-heading">
+    <div class="service-container service-container--examples">
+      <header class="inspire-header">
+        <p class="inspire-header__eyebrow">— Examples —</p>
+        <h2 id="examples-heading" class="inspire-header__title">Choose a style that fits you.</h2>
+        <p class="inspire-header__lead">Clean, modern designs built for game dev students.</p>
+      </header>
+
+      <ul class="showcase-grid">
+        <li>
+          <article class="showcase">
+            <div class="showcase-slider showcase-slider--t1" data-showcase-slider tabindex="0" aria-roledescription="carousel" aria-label="Slide Navigator template previews">
+              <div class="showcase-slider__viewport">
+                <img class="showcase-slider__slide is-active" src="slides/T1/Template1-1.PNG" alt="Slide Navigator template, slide 1 of 5" width="960" height="600" decoding="async" data-fallback="assets/placeholder.svg" onerror="__imgFallback(this)" />
+                <img class="showcase-slider__slide" src="slides/T1/Template1-2.PNG" alt="Slide Navigator template, slide 2 of 5" width="960" height="600" loading="lazy" decoding="async" data-fallback="assets/placeholder.svg" onerror="__imgFallback(this)" aria-hidden="true" />
+                <img class="showcase-slider__slide" src="slides/T1/Template1-3.PNG" alt="Slide Navigator template, slide 3 of 5" width="960" height="600" loading="lazy" decoding="async" data-fallback="assets/placeholder.svg" onerror="__imgFallback(this)" aria-hidden="true" />
+                <img class="showcase-slider__slide" src="slides/T1/Template1-4.PNG" alt="Slide Navigator template, slide 4 of 5" width="960" height="600" loading="lazy" decoding="async" data-fallback="assets/placeholder.svg" onerror="__imgFallback(this)" aria-hidden="true" />
+                <img class="showcase-slider__slide" src="slides/T1/Template1-5.PNG" alt="Slide Navigator template, slide 5 of 5" width="960" height="600" loading="lazy" decoding="async" data-fallback="assets/placeholder.svg" onerror="__imgFallback(this)" aria-hidden="true" />
+                <button type="button" class="showcase-slider__nav showcase-slider__nav--prev" aria-label="Previous slide">&#10094;</button>
+                <button type="button" class="showcase-slider__nav showcase-slider__nav--next" aria-label="Next slide">&#10095;</button>
+                <div class="showcase-slider__footer">
+                  <div class="showcase-slider__dots" role="tablist" aria-label="Choose slide">
+                    <button type="button" class="showcase-slider__dot is-active" role="tab" aria-selected="true" aria-label="Slide 1"></button>
+                    <button type="button" class="showcase-slider__dot" role="tab" aria-selected="false" aria-label="Slide 2"></button>
+                    <button type="button" class="showcase-slider__dot" role="tab" aria-selected="false" aria-label="Slide 3"></button>
+                    <button type="button" class="showcase-slider__dot" role="tab" aria-selected="false" aria-label="Slide 4"></button>
+                    <button type="button" class="showcase-slider__dot" role="tab" aria-selected="false" aria-label="Slide 5"></button>
+                  </div>
+                  <span class="showcase-slider__counter" aria-live="polite">1 / 5</span>
+                </div>
+              </div>
+            </div>
+            <div class="showcase__caption">
+              <p class="showcase__label">Template 01 — Slide Navigator</p>
+              <p class="showcase__text">Bold and cinematic. Full-screen project slides with a hotbar and embedded gameplay - ideal when you want recruiters to browse many games quickly.</p>
+            </div>
+          </article>
+        </li>
+        <li>
+          <article class="showcase">
+            <div class="showcase-slider showcase-slider--t2" data-showcase-slider tabindex="0" aria-roledescription="carousel" aria-label="Single Page Scroll template previews">
+              <div class="showcase-slider__viewport">
+                <img class="showcase-slider__slide is-active" src="slides/T2/Template2-1.PNG" alt="Single Page Scroll template, slide 1 of 5" width="960" height="600" decoding="async" data-fallback="assets/placeholder.svg" onerror="__imgFallback(this)" />
+                <img class="showcase-slider__slide" src="slides/T2/Template2-2.PNG" alt="Single Page Scroll template, slide 2 of 5" width="960" height="600" loading="lazy" decoding="async" data-fallback="assets/placeholder.svg" onerror="__imgFallback(this)" aria-hidden="true" />
+                <img class="showcase-slider__slide" src="slides/T2/Template2-3.PNG" alt="Single Page Scroll template, slide 3 of 5" width="960" height="600" loading="lazy" decoding="async" data-fallback="assets/placeholder.svg" onerror="__imgFallback(this)" aria-hidden="true" />
+                <img class="showcase-slider__slide" src="slides/T2/Template2-4.PNG" alt="Single Page Scroll template, slide 4 of 5" width="960" height="600" loading="lazy" decoding="async" data-fallback="assets/placeholder.svg" onerror="__imgFallback(this)" aria-hidden="true" />
+                <img class="showcase-slider__slide" src="slides/T2/Template2-5.PNG" alt="Single Page Scroll template, slide 5 of 5" width="960" height="600" loading="lazy" decoding="async" data-fallback="assets/placeholder.svg" onerror="__imgFallback(this)" aria-hidden="true" />
+                <button type="button" class="showcase-slider__nav showcase-slider__nav--prev" aria-label="Previous slide">&#10094;</button>
+                <button type="button" class="showcase-slider__nav showcase-slider__nav--next" aria-label="Next slide">&#10095;</button>
+                <div class="showcase-slider__footer">
+                  <div class="showcase-slider__dots" role="tablist" aria-label="Choose slide">
+                    <button type="button" class="showcase-slider__dot is-active" role="tab" aria-selected="true" aria-label="Slide 1"></button>
+                    <button type="button" class="showcase-slider__dot" role="tab" aria-selected="false" aria-label="Slide 2"></button>
+                    <button type="button" class="showcase-slider__dot" role="tab" aria-selected="false" aria-label="Slide 3"></button>
+                    <button type="button" class="showcase-slider__dot" role="tab" aria-selected="false" aria-label="Slide 4"></button>
+                    <button type="button" class="showcase-slider__dot" role="tab" aria-selected="false" aria-label="Slide 5"></button>
+                  </div>
+                  <span class="showcase-slider__counter" aria-live="polite">1 / 5</span>
+                </div>
+              </div>
+            </div>
+            <div class="showcase__caption">
+              <p class="showcase__label">Template 02 — Single Page Scroll</p>
+              <p class="showcase__text">Clean and focused. One continuous page with anchored sections - perfect when you only need your strongest work upfront on a CV or LinkedIn.</p>
+            </div>
+          </article>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Pricing & Process -->
+  <section id="pricing" class="service-section service-section--pricing" aria-labelledby="pricing-heading">
+    <div class="service-container service-container--pricing">
+
+      <div id="process" class="process-block">
+        <header class="inspire-header">
+          <p class="inspire-header__eyebrow">— Process —</p>
+          <h2 id="process-heading" class="inspire-header__title">Simple process. Stress free.</h2>
+        </header>
+
+        <ol class="process-flow" aria-label="Portfolio build workflow">
+          <li class="process-step">
+            <div class="process-step__icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75" width="28" height="28" focusable="false">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+              </svg>
+            </div>
+            <h3 class="process-step__title">1. Contact</h3>
+            <p class="process-step__text">Send me a message and we'll discuss your needs.</p>
+          </li>
+          <li class="process-connector" aria-hidden="true"></li>
+          <li class="process-step">
+            <div class="process-step__icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75" width="28" height="28" focusable="false">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+              </svg>
+            </div>
+            <h3 class="process-step__title">2. Send Content</h3>
+            <p class="process-step__text">You send your projects, images, and information.</p>
+          </li>
+          <li class="process-connector" aria-hidden="true"></li>
+          <li class="process-step">
+            <div class="process-step__icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="28" height="28" focusable="false">
+                <path d="M8 4l-6 8 6 8V4zm8 0v16l6-8-6-8z"/>
+              </svg>
+            </div>
+            <h3 class="process-step__title">3. I Build Your Site</h3>
+            <p class="process-step__text">I'll build your portfolio using your chosen style or custom design.</p>
+          </li>
+          <li class="process-connector" aria-hidden="true"></li>
+          <li class="process-step">
+            <div class="process-step__icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75" width="28" height="28" focusable="false">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+              </svg>
+            </div>
+            <h3 class="process-step__title">4. Review &amp; Revisions</h3>
+            <p class="process-step__text">You review the site and request any changes (included).</p>
+          </li>
+          <li class="process-connector" aria-hidden="true"></li>
+          <li class="process-step">
+            <div class="process-step__icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75" width="28" height="28" focusable="false">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+            </div>
+            <h3 class="process-step__title">5. Launch</h3>
+            <p class="process-step__text">We go live! Your portfolio is ready to impress employers.</p>
+          </li>
+        </ol>
+      </div>
+
+      <div class="pricing-block">
+        <header class="inspire-header">
+          <p class="inspire-header__eyebrow">— Pricing —</p>
+          <h2 id="pricing-heading" class="inspire-header__title">Simple pricing. No hidden fees.</h2>
+        </header>
+
+        <ul class="pricing-grid">
+          <li>
+            <article class="pricing-card">
+              <svg class="pricing-card__watermark" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1" aria-hidden="true" focusable="false">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 5h16M4 12h16M4 19h16"/>
+              </svg>
+              <p class="pricing-card__tier">Starter Package</p>
+              <p class="pricing-card__price">£40</p>
+              <ul class="pricing-card__features">
+                <li>Single scrolling page layout</li>
+                <li>Up to 3 projects</li>
+                <li>Video embed + summary per project</li>
+                <li>Mobile-responsive build</li>
+                <li>Hosted on GitHub Pages</li>
+                <li>1 round of revisions</li>
+              </ul>
+              <a class="quick-link quick-link--primary pricing-card__cta" href="#contact">Get Started</a>
+            </article>
+          </li>
+          <li>
+            <article class="pricing-card pricing-card--featured">
+              <svg class="pricing-card__watermark" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M8 4l-6 8 6 8V4zm8 0v16l6-8-6-8z"/>
+              </svg>
+              <p class="pricing-card__tier">Standard Package</p>
+              <p class="pricing-card__price">£60</p>
+              <ul class="pricing-card__features">
+                <li>Multi-section or slide-based layout</li>
+                <li>Up to 6 projects</li>
+                <li>Role, skills &amp; project description blocks</li>
+                <li>Basic screenshot gallery per project</li>
+                <li>Hosted on GitHub Pages</li>
+                <li>2 rounds of revisions</li>
+              </ul>
+              <a class="quick-link quick-link--primary pricing-card__cta" href="#contact">Get Started</a>
+            </article>
+          </li>
+          <li>
+            <article class="pricing-card">
+              <svg class="pricing-card__watermark" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1" aria-hidden="true" focusable="false">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                <path stroke-linecap="round" d="M3 9h18M9 21V9"/>
+              </svg>
+              <p class="pricing-card__tier">Premium Package</p>
+              <p class="pricing-card__price">£80</p>
+              <ul class="pricing-card__features">
+                <li>Full custom layout (hotbar / filters)</li>
+                <li>Up to 10 projects</li>
+                <li>Case study sections (problem / approach / result)</li>
+                <li>Planning &amp; development doc slideshows</li>
+                <li>Hosting setup guidance included</li>
+                <li>3 rounds of revisions</li>
+              </ul>
+              <a class="quick-link quick-link--primary pricing-card__cta" href="#contact">Get Started</a>
+            </article>
+          </li>
+        </ul>
+
+        <p class="pricing-footnote">Need something different? <a href="#contact">Message me</a> for a custom quote.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Me -->
+  <section id="about" class="service-section service-section--about" aria-labelledby="about-heading">
+    <div class="service-container service-container--about">
+      <header class="inspire-header">
+        <p class="inspire-header__eyebrow">— About —</p>
+        <h2 id="about-heading" class="inspire-header__title">Built by a game dev, for game devs.</h2>
+        <p class="inspire-header__lead">I've been through the student portfolio process and build sites that match what studios actually look for.</p>
+      </header>
+
+      <div class="about-layout">
+        <div class="about-layout__aside">
+          <figure class="about-portrait">
+            <img
+              src="images/Me.webp"
+              alt="Jacques Gwenin"
+              class="about-portrait__image"
+              width="560"
+              height="640"
+              loading="lazy"
+              decoding="async"
+              data-original-src="images/Me.png"
+              data-fallback="assets/placeholder.svg"
+              onerror="__imgFallback(this)"
+            />
+          </figure>
+
+          <div class="about-panel about-panel--credentials">
+            <h4 class="about-panel__title">Credentials</h4>
+            <ul class="about-panel__list">
+              <li>Unreal Engine 5 (Blueprint &amp; C++)</li>
+              <li>Combat &amp; systems design</li>
+              <li>Industry portfolio experience</li>
+              <li>University group &amp; solo projects</li>
+              <li>Case study &amp; documentation layout</li>
+              <li>HTML / CSS portfolio builds</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="about-layout__main">
+          <div class="about-panel about-panel--intro">
+            <div class="about-intro">
+              <h3 class="about-intro__name">Jacques Gwenin</h3>
+              <p class="about-intro__role">Game Designer &amp; Unreal Developer</p>
+              <div class="about-intro__bio">
+                <p>I recently graduated from Staffordshire University - an Authorised Unreal Training Centre - with a First-Class degree in Games Design. I work with Unreal Engine 5 (Blueprint &amp; C++), and I have shipped design work on a live industry title while building solo and team projects across university.</p>
+                <p>I know what it feels like to stare at a folder of screenshots and GDD pages, unsure how to present them to a hiring manager who has five minutes per applicant. I built my own portfolio from scratch and learned what gets skimmed, what gets clicked, and what gets ignored.</p>
+                <p>That experience is why I offer this service: to help students present their work with the clarity studios expect - embedded gameplay, readable case studies, and navigation that puts your projects first.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-panel about-panel--why">
+            <h4 class="about-panel__title">Why Students Work With Me</h4>
+            <ul class="about-panel__list">
+              <li><strong>Industry language</strong> - portfolios structured the way game dev reviewers actually read them</li>
+              <li><strong>Student budgets</strong> - one-off pricing, no monthly builder subscription, files you own</li>
+              <li><strong>Proven layouts</strong> - navigation and case study depth based on how I present work to studios</li>
+              <li><strong>Clear scope</strong> - honest tier limits, fast turnaround, no upselling</li>
+              <li><strong>Full handover</strong> - source files at launch so you can update and host independently</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="service-section service-section--faq" aria-labelledby="faq-heading">
+    <div class="service-container service-container--faq">
+      <header class="inspire-header">
+        <p class="inspire-header__eyebrow">— FAQ —</p>
+        <h2 id="faq-heading" class="inspire-header__title">Got questions? Straight answers.</h2>
+        <p class="inspire-header__lead">Common questions from students before they get started.</p>
+      </header>
+
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-item__question">Who is this service for?</summary>
+          <div class="faq-item__answer">
+            <p>Game development students - design, programming, art, or production - preparing for placements, graduate schemes, or junior roles. If you have projects to show but no confident way to present them online, this is for you.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-item__question">What do I need to provide?</summary>
+          <div class="faq-item__answer">
+            <p>At minimum: project titles, short descriptions, and gameplay video links or files. For Standard and Premium, add screenshots, GDD pages, and any case study notes you already have. I will tell you exactly what is missing after you enquire.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-item__question">How long does a portfolio take?</summary>
+          <div class="faq-item__answer">
+            <p>Starter typically takes 5-7 days, Standard 7-10 days, and Premium 10-14 days - assuming your content is ready. Delays usually come from waiting on assets, not the build itself.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-item__question">Can you help write case studies?</summary>
+          <div class="faq-item__answer">
+            <p>Premium includes structure guidance and light editing. Starter and Standard expect you to provide the written content; I format and place it. Full ghostwriting is outside scope at these price points.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Me -->
+  <section id="contact" class="service-section service-section--contact" aria-labelledby="contact-heading">
+    <div class="service-container service-container--contact">
+      <header class="inspire-header">
+        <p class="inspire-header__eyebrow">— Contact —</p>
+        <h2 id="contact-heading" class="inspire-header__title">Ready to get started?</h2>
+        <p class="inspire-header__lead">Reach out on Discord or email - I'll get back to you as soon as I can.</p>
+      </header>
+
+      <div class="contact-panel">
+        <div class="contact-channels">
+        <a
+          class="contact-channel contact-channel--discord"
+          href="https://discord.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Discord: @jackques3283"
+        >
+          <svg class="contact-channel__icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="40" height="40" aria-hidden="true" focusable="false">
+            <path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037 13.8 13.8 0 0 0-.617 1.267 18.27 18.27 0 0 0-5.487 0 12.92 12.92 0 0 0-.622-1.267.077.077 0 0 0-.079-.037A19.74 19.74 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.08.08 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.11 13.11 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.118-.095.246-.195.373-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.3 12.3 0 0 1-1.873.892.077.077 0 0 0-.041.107 14.3 14.3 0 0 0 1.225 1.993.076.076 0 0 0 .084.028 19.84 19.84 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+          </svg>
+        </a>
+        <a
+          class="contact-channel contact-channel--email"
+          href="mailto:gweninj@gmail.com"
+          aria-label="Email: gweninj@gmail.com"
+        >
+          <svg class="contact-channel__icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="40" height="40" aria-hidden="true" focusable="false">
+            <path d="M2 4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4zM4 5.5v13h16v-13H4zm8 5.75L6.75 6.5h10.5L12 11.25z"/>
+          </svg>
+        </a>
+      </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer site-footer--visible">
+  <p>&copy; 2025 Jacques Gwenin · <span class="footer-brand"><span class="footer-brand__dev">DEV</span> PORTFOLIOS</span></p>
+</footer>
+
+<script src="js/showcase-slider.js" defer></script>
+</body>
+</html>
