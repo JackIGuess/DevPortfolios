@@ -1,9 +1,10 @@
 (function () {
+  const sliderRegistry = new WeakMap();
+  let activeSlider = null;
+
   function initShowcaseSlider(root) {
     const slides = Array.from(root.querySelectorAll(".showcase-slider__slide"));
     const dots = Array.from(root.querySelectorAll(".showcase-slider__dot"));
-    const prevBtn = root.querySelector(".showcase-slider__nav--prev");
-    const nextBtn = root.querySelector(".showcase-slider__nav--next");
     const counter = root.querySelector(".showcase-slider__counter");
     if (!slides.length) return;
 
@@ -25,79 +26,139 @@
       if (counter) {
         counter.textContent = `${index + 1} / ${slides.length}`;
       }
+      if (activeSlider === root) {
+        syncLightboxSlide();
+      }
     }
 
-    prevBtn?.addEventListener("click", () => setSlide(index - 1));
-    nextBtn?.addEventListener("click", () => setSlide(index + 1));
-    dots.forEach((dot, i) => {
-      dot.addEventListener("click", () => setSlide(i));
-    });
-
-    root.addEventListener("keydown", (event) => {
-      if (event.key === "ArrowLeft") {
-        event.preventDefault();
-        setSlide(index - 1);
-      } else if (event.key === "ArrowRight") {
-        event.preventDefault();
-        setSlide(index + 1);
-      }
+    sliderRegistry.set(root, {
+      setSlide,
+      getIndex: () => index,
+      getSlideCount: () => slides.length,
+      getActiveSlide: () => slides[index],
+      root,
     });
 
     setSlide(index);
+  }
+
+  function syncLightboxSlide() {
+    const lightbox = document.getElementById("showcase-lightbox");
+    const image = lightbox?.querySelector(".showcase-lightbox__image");
+    const counter = lightbox?.querySelector(".showcase-lightbox__counter");
+    const controller = activeSlider ? sliderRegistry.get(activeSlider) : null;
+    if (!lightbox || !image || !controller) return;
+
+    const active = controller.getActiveSlide();
+    if (!active) return;
+
+    image.src = active.currentSrc || active.src;
+    image.alt = active.alt || "Expanded template preview";
+    if (counter) {
+      counter.textContent = `${controller.getIndex() + 1} / ${controller.getSlideCount()}`;
+    }
+  }
+
+  function openLightbox(slider) {
+    const lightbox = document.getElementById("showcase-lightbox");
+    const controller = sliderRegistry.get(slider);
+    if (!lightbox || !controller) return;
+
+    activeSlider = slider;
+    lightbox._lastFocus = document.activeElement;
+
+    syncLightboxSlide();
+    lightbox.hidden = false;
+    lightbox.classList.add("is-open");
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.classList.add("showcase-lightbox-open");
+
+    lightbox.querySelector(".showcase-lightbox__nav--prev")?.focus();
+  }
+
+  function closeLightbox() {
+    const lightbox = document.getElementById("showcase-lightbox");
+    if (!lightbox || !lightbox.classList.contains("is-open")) return;
+
+    const image = lightbox.querySelector(".showcase-lightbox__image");
+    lightbox.classList.remove("is-open");
+    lightbox.hidden = true;
+    lightbox.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("showcase-lightbox-open");
+
+    if (image) {
+      image.removeAttribute("src");
+      image.alt = "";
+    }
+
+    const lastFocus = lightbox._lastFocus;
+    activeSlider = null;
+    if (lastFocus && typeof lastFocus.focus === "function") {
+      lastFocus.focus();
+    }
+  }
+
+  function initShowcaseCards() {
+    document.querySelectorAll("[data-showcase-card]").forEach((card) => {
+      const slider = card.querySelector("[data-showcase-slider]");
+      if (!slider) return;
+
+      function openFromCard() {
+        openLightbox(slider);
+      }
+
+      card.addEventListener("click", () => {
+        openFromCard();
+      });
+
+      card.addEventListener("keydown", (event) => {
+        if (event.target !== card) return;
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          openFromCard();
+        }
+      });
+    });
   }
 
   function initShowcaseLightbox() {
     const lightbox = document.getElementById("showcase-lightbox");
     if (!lightbox) return;
 
-    const backdrop = lightbox.querySelector("[data-lightbox-close]");
-    const image = lightbox.querySelector(".showcase-lightbox__image");
-    let lastFocus = null;
-
-    function openFromSlider(slider) {
-      const active = slider.querySelector(".showcase-slider__slide.is-active");
-      if (!active || !image) return;
-
-      lastFocus = document.activeElement;
-      image.src = active.currentSrc || active.src;
-      image.alt = active.alt || "Expanded template preview";
-      lightbox.hidden = false;
-      lightbox.classList.add("is-open");
-      lightbox.setAttribute("aria-hidden", "false");
-      document.body.classList.add("showcase-lightbox-open");
-    }
-
-    function close() {
-      lightbox.classList.remove("is-open");
-      lightbox.hidden = true;
-      lightbox.setAttribute("aria-hidden", "true");
-      document.body.classList.remove("showcase-lightbox-open");
-      if (image) {
-        image.removeAttribute("src");
-        image.alt = "";
-      }
-      if (lastFocus && typeof lastFocus.focus === "function") {
-        lastFocus.focus();
-      }
-    }
-
-    document.querySelectorAll(".showcase-slider__expand").forEach((button) => {
-      button.addEventListener("click", (event) => {
-        event.stopPropagation();
-        const slider = button.closest("[data-showcase-slider]");
-        if (slider) openFromSlider(slider);
-      });
+    lightbox.querySelectorAll("[data-lightbox-close]").forEach((button) => {
+      button.addEventListener("click", closeLightbox);
     });
 
-    backdrop?.addEventListener("click", close);
+    lightbox.querySelector(".showcase-lightbox__nav--prev")?.addEventListener("click", (event) => {
+      event.stopPropagation();
+      const controller = activeSlider ? sliderRegistry.get(activeSlider) : null;
+      if (controller) controller.setSlide(controller.getIndex() - 1);
+    });
+
+    lightbox.querySelector(".showcase-lightbox__nav--next")?.addEventListener("click", (event) => {
+      event.stopPropagation();
+      const controller = activeSlider ? sliderRegistry.get(activeSlider) : null;
+      if (controller) controller.setSlide(controller.getIndex() + 1);
+    });
 
     document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
-        close();
+      if (!lightbox.classList.contains("is-open")) return;
+
+      if (event.key === "Escape") {
+        closeLightbox();
+      } else if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        const controller = activeSlider ? sliderRegistry.get(activeSlider) : null;
+        if (controller) controller.setSlide(controller.getIndex() - 1);
+      } else if (event.key === "ArrowRight") {
+        event.preventDefault();
+        const controller = activeSlider ? sliderRegistry.get(activeSlider) : null;
+        if (controller) controller.setSlide(controller.getIndex() + 1);
       }
     });
   }
 
   document.querySelectorAll("[data-showcase-slider]").forEach(initShowcaseSlider);
+  initShowcaseCards();
   initShowcaseLightbox();
 })();
