@@ -1,16 +1,25 @@
 /**
  * GA4 custom event tracking for Dev Portfolios (service site).
- * Requires the gtag snippet in <head> — do not load gtag again here.
+ * gtag is loaded by cookie-consent.js only after the user accepts analytics.
+ *
+ * Mark contact_button_click as a key event in GA4:
+ * Admin > Data display > Events > contact_button_click > Mark as key event
  */
 (function () {
   if (!document.body.classList.contains("service-site")) return;
   if (window.__GA4_EVENTS_BOUND__) return;
   window.__GA4_EVENTS_BOUND__ = true;
 
+  var GA_MEASUREMENT_ID = "G-C951BJKH1B";
+
   /** Fire a GA4 event when gtag is available. */
   function trackEvent(eventName, params) {
     if (typeof window.gtag !== "function") return;
-    window.gtag("event", eventName, params);
+    window.gtag(
+      "event",
+      eventName,
+      Object.assign({ send_to: GA_MEASUREMENT_ID }, params || {})
+    );
   }
 
   function pageLocation() {
@@ -31,6 +40,7 @@
       if (!target) return;
 
       trackEvent("contact_button_click", {
+        method: "contact_button",
         page_location: pageLocation(),
         link_url: target.getAttribute("href") || "",
         link_text: (target.textContent || "").trim().slice(0, 100),

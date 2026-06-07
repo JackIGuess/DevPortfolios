@@ -5,14 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Game Dev Portfolio Websites | Jacques Gwenin</title>
   <link rel="stylesheet" href="style.css">
-  <!-- Google Analytics (GA4) — load once in <head> -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-C951BJKH1B"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag("js", new Date());
-    gtag("config", "G-C951BJKH1B");
-  </script>
 </head>
 <body class="service-site">
 <script>
@@ -630,7 +622,144 @@
 
 <footer class="site-footer site-footer--visible">
   <p>&copy; 2025 Jacques Gwenin · <span class="footer-brand"><span class="footer-brand__dev">DEV</span> PORTFOLIOS</span></p>
+  <p class="site-footer__links"><a href="#terms">Terms &amp; Conditions</a> · <a href="#privacy">Privacy Policy</a></p>
 </footer>
+
+<div id="legal-modal" class="legal-modal" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Legal information">
+  <button type="button" class="legal-modal__backdrop" data-legal-close aria-label="Close"></button>
+  <div class="legal-modal__panel">
+    <div class="legal-modal__scroll">
+
+    <article class="legal-modal__doc" data-legal-panel="terms" id="terms" hidden>
+      <header class="legal-modal__header">
+        <h2 class="site-privacy__title">Terms &amp; Conditions</h2>
+        <p class="site-privacy__updated">Last updated: 7 June 2026</p>
+      </header>
+      <div class="site-privacy__inner">
+        <p class="site-privacy__intro">These terms apply when you hire Jacques Gwenin ("I", "me") for DEV PORTFOLIOS portfolio services. By confirming a booking and paying the agreed fee, you ("you", "the client") agree to these terms.</p>
+
+        <h3 class="site-privacy__heading">Services</h3>
+        <p>I design and build custom HTML/CSS portfolio websites for game development students and graduates. Work is delivered against the package you choose:</p>
+        <ul class="site-privacy__list">
+          <li><strong>Starter (£60)</strong> - up to 3 projects, single-page layout, 1 revision round</li>
+          <li><strong>Standard (£100)</strong> - up to 6 projects, multi-section or slide layout, 2 revision rounds</li>
+          <li><strong>Premium (£150)</strong> - up to 10 projects, case studies and doc slideshows, light editing, 3 revision rounds</li>
+        </ul>
+        <p>Add-ons (Portfolio Refresh from £45, extra projects at £15 each, extra revision rounds at £25) are available by separate agreement. Custom quotes may differ; anything agreed in writing before payment takes priority over this page.</p>
+
+        <h3 class="site-privacy__heading">Booking and payment</h3>
+        <ul class="site-privacy__list">
+          <li>Contact me via email or Discord to discuss your needs and confirm the right package.</li>
+          <li>I will confirm the package, price, scope, and expected timeline in writing (email or Discord) before work starts.</li>
+          <li>Payment is due in full before I begin the build unless we agree otherwise in writing.</li>
+          <li>Prices are in GBP. I will confirm the payment method when you book.</li>
+        </ul>
+
+        <h3 class="site-privacy__heading">What you provide</h3>
+        <p>You are responsible for supplying the content needed for your portfolio, including project titles, descriptions, gameplay videos or links, screenshots, and any text you want included. For Standard and Premium, you should also provide material for galleries and case studies where applicable.</p>
+        <p>You confirm that you have the right to use and share all content you send me (including team project credits, footage, images, and documents). Delays caused by missing or late content may extend the delivery timeline.</p>
+
+        <h3 class="site-privacy__heading">Delivery and timelines</h3>
+        <p>Typical turnaround, once your content is ready:</p>
+        <ul class="site-privacy__list">
+          <li><strong>Starter</strong> - 5 to 7 days</li>
+          <li><strong>Standard</strong> - 7 to 10 days</li>
+          <li><strong>Premium</strong> - 10 to 14 days</li>
+        </ul>
+        <p>These are estimates, not guarantees. I will communicate if your project is likely to take longer. I work evenings and weekends alongside full-time employment, so timelines depend on my current workload.</p>
+
+        <h3 class="site-privacy__heading">Revisions</h3>
+        <p>Each package includes the revision rounds listed above. A revision round means one structured batch of feedback from you, which I address together. Requests outside agreed scope (for example extra projects, new layouts, or full rewrites) may count as an extra revision round or be quoted separately.</p>
+        <p>Additional revision rounds are available at £25 each if agreed before the work is carried out.</p>
+
+        <h3 class="site-privacy__heading">Ownership and handover</h3>
+        <p>On completion and receipt of full payment, you receive the portfolio source files (HTML, CSS, and project assets we used). You own the site we built together and may host, edit, and update it yourself.</p>
+        <p>I retain the right to show the finished portfolio (or anonymised excerpts) in my own examples and marketing unless you ask me not to in writing.</p>
+        <p>Underlying layout approaches and code patterns I reuse across clients remain my general know-how; your content and the specific site built for you belong to you.</p>
+
+        <h3 class="site-privacy__heading">Hosting</h3>
+        <p>I can help set up hosting on GitHub Pages as part of your package. Ongoing hosting costs and account ownership are your responsibility. Static portfolios do not require a monthly maintenance subscription from me unless we agree a separate update or refresh service.</p>
+
+        <h3 class="site-privacy__heading">Cancellations and refunds</h3>
+        <ul class="site-privacy__list">
+          <li><strong>Before work starts</strong> - if you cancel after paying but before I have begun the build, I will refund the full amount.</li>
+          <li><strong>After work has started</strong> - if you cancel once the build is underway, I may retain a fair portion of the fee to cover work already completed. Any refund will be agreed case by case.</li>
+          <li><strong>If I cancel</strong> - if I am unable to complete your project, I will refund any portion of the fee for work not yet delivered.</li>
+        </ul>
+        <p>I do not guarantee employment, interviews, or placement outcomes. The service is for professional presentation of your work only.</p>
+
+        <h3 class="site-privacy__heading">Limitation of liability</h3>
+        <p>I deliver the service with reasonable skill and care. To the fullest extent permitted by law, my total liability to you for any claim relating to the service is limited to the amount you paid for that project. I am not liable for indirect or consequential losses (including lost opportunities, earnings, or data) except where liability cannot be limited by law.</p>
+
+        <h3 class="site-privacy__heading">Contact and disputes</h3>
+        <p>Questions about these terms: <a href="mailto:gweninj@gmail.com">gweninj@gmail.com</a> or Discord <a href="https://discord.com/users/584114394448003072" target="_blank" rel="noopener noreferrer">@jackques3283</a>. I aim to resolve concerns directly and fairly. These terms are governed by the laws of England and Wales.</p>
+
+        <h3 class="site-privacy__heading">Changes</h3>
+        <p>I may update these terms from time to time. The "Last updated" date will change when I do. Terms in effect at the time you confirm your booking apply to that project.</p>
+      </div>
+    </article>
+
+    <article class="legal-modal__doc" data-legal-panel="privacy" id="privacy" hidden>
+      <header class="legal-modal__header">
+        <h2 class="site-privacy__title">Privacy Policy</h2>
+        <p class="site-privacy__updated">Last updated: 7 June 2026</p>
+      </header>
+      <div class="site-privacy__inner">
+        <p class="site-privacy__intro">This policy explains how Jacques Gwenin ("I", "me") handles personal data when you use the DEV PORTFOLIOS website and contact me about portfolio services.</p>
+
+        <h3 class="site-privacy__heading">Who is responsible</h3>
+        <p>Data controller: Jacques Gwenin. Contact: <a href="mailto:gweninj@gmail.com">gweninj@gmail.com</a> or Discord <a href="https://discord.com/users/584114394448003072" target="_blank" rel="noopener noreferrer">@jackques3283</a>.</p>
+
+        <h3 class="site-privacy__heading">What data I collect</h3>
+        <ul class="site-privacy__list">
+          <li><strong>Website analytics (optional)</strong> - if you accept analytics cookies, Google Analytics 4 collects usage data such as pages viewed, approximate location, device/browser type, and contact button clicks. This uses cookies and similar technologies.</li>
+          <li><strong>Enquiries</strong> - if you email me or message me on Discord, I receive whatever you choose to send (for example your name, email address, and project details).</li>
+          <li><strong>Client work</strong> - if you hire me, I process content you provide for your portfolio (text, images, videos, and links) solely to deliver the service.</li>
+        </ul>
+
+        <h3 class="site-privacy__heading">How I use your data</h3>
+        <ul class="site-privacy__list">
+          <li>To run and improve this website</li>
+          <li>To understand whether people are visiting and using contact options (analytics, only with consent)</li>
+          <li>To reply to enquiries and deliver portfolio services you request</li>
+        </ul>
+
+        <h3 class="site-privacy__heading">Legal basis (UK GDPR)</h3>
+        <ul class="site-privacy__list">
+          <li><strong>Consent</strong> - for optional analytics cookies</li>
+          <li><strong>Legitimate interests</strong> - to respond to enquiries and operate my business</li>
+          <li><strong>Contract</strong> - to deliver portfolio work you have asked for</li>
+        </ul>
+
+        <h3 class="site-privacy__heading">Third parties</h3>
+        <ul class="site-privacy__list">
+          <li><strong>Google Analytics</strong> - analytics provider (only if you accept cookies). See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's privacy policy</a>.</li>
+          <li><strong>GitHub Pages</strong> - hosts this website. See <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub's privacy statement</a>.</li>
+          <li><strong>Discord and email</strong> - if you contact me through those services, their platforms process your messages under their own policies.</li>
+        </ul>
+
+        <h3 class="site-privacy__heading">Cookies</h3>
+        <p>This site does not use advertising cookies. Optional analytics cookies are only set if you click <strong>Accept</strong> on the cookie banner. You can decline analytics or withdraw consent later by clearing site data for this website in your browser. Your choice is stored locally in your browser (localStorage) as <code>devportfolios_analytics_consent</code>.</p>
+
+        <h3 class="site-privacy__heading">How long I keep data</h3>
+        <ul class="site-privacy__list">
+          <li><strong>Analytics</strong> - handled by Google according to my Analytics settings (typically up to 14 months for event data).</li>
+          <li><strong>Enquiries</strong> - kept as long as needed to respond and for reasonable business records, then deleted unless we work together.</li>
+          <li><strong>Client project files</strong> - handed over to you at launch; I do not keep copies unless we agree otherwise in writing.</li>
+        </ul>
+
+        <h3 class="site-privacy__heading">Your rights</h3>
+        <p>Under UK data protection law you can ask to access, correct, or delete your personal data, object to certain processing, or withdraw consent for analytics. Contact me at <a href="mailto:gweninj@gmail.com">gweninj@gmail.com</a> and I will respond within one month.</p>
+        <p>You can also complain to the UK Information Commissioner's Office (ICO) at <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer">ico.org.uk</a>.</p>
+
+        <h3 class="site-privacy__heading">Changes</h3>
+        <p>I may update this policy from time to time. The "Last updated" date at the top will change when I do.</p>
+      </div>
+    </article>
+
+    </div>
+  </div>
+</div>
 
 <div id="showcase-lightbox" class="showcase-lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Expanded template preview">
   <button type="button" class="showcase-lightbox__backdrop" data-lightbox-close aria-label="Close expanded preview"></button>
@@ -645,6 +774,29 @@
   </div>
 </div>
 
+<div
+  id="cookie-consent"
+  class="cookie-consent"
+  role="dialog"
+  aria-label="Cookie consent"
+  aria-live="polite"
+  hidden
+>
+  <div class="cookie-consent__inner">
+    <p class="cookie-consent__text">
+      This site uses optional analytics cookies to count visits and contact button clicks.
+      No advertising cookies. See our <a href="#terms">Terms</a> and <a href="#privacy">Privacy Policy</a>.
+      You can change your choice anytime by clearing site data in your browser.
+    </p>
+    <div class="cookie-consent__actions">
+      <button type="button" class="cookie-consent__btn cookie-consent__btn--accept" id="cookie-consent-accept">Accept</button>
+      <button type="button" class="cookie-consent__btn cookie-consent__btn--decline" id="cookie-consent-decline">Decline</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/cookie-consent.js"></script>
+<script src="js/legal-details.js"></script>
 <script src="js/header-offset.js"></script>
 <script src="js/analytics.js" defer></script>
 <script src="js/showcase-slider.js" defer></script>
