@@ -3164,11 +3164,23 @@ body.showcase-lightbox-open {
 }
 
 
+@media (max-width: 768px) {
+  :root {
+    --page-gutter: clamp(1.75rem, 7vw, 2.75rem);
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --page-gutter: clamp(1.5rem, 6vw, 2.25rem);
+  }
+}
+
 @media (max-width: 640px) {
   .site-header__inner {
     flex-wrap: wrap;
     justify-content: center;
-    padding: 0.65rem 1.25rem;
+    padding: 0.65rem var(--page-gutter);
     gap: 0.5rem;
     min-height: auto;
     align-content: center;
@@ -3218,4 +3230,115 @@ body.showcase-lightbox-open {
   .about-panel--credentials .about-panel__list {
     grid-template-columns: 1fr;
   }
+
+  .service-container--examples {
+    padding-left: clamp(1rem, 4.5vw, 1.5rem);
+    padding-right: clamp(1rem, 4.5vw, 1.5rem);
+  }
+
+  .showcase {
+    padding: clamp(0.65rem, 2.5vw, 0.9rem);
+  }
+
+  .showcase-slider__viewport {
+    min-height: clamp(210px, 52vw, 300px);
+    aspect-ratio: 16 / 9;
+  }
+
+  .showcase-lightbox {
+    padding: 0;
+  }
+
+  .showcase-lightbox__stage {
+    width: min(98vw, 1800px);
+    gap: 0.35rem;
+  }
+
+  .showcase-lightbox__image {
+    max-height: calc(100vh - 2.5rem);
+    max-width: calc(100vw - 4.5rem);
+  }
+
+  .showcase-lightbox .showcase-slider__nav {
+    width: 2.35rem;
+    height: 2.35rem;
+    font-size: 1.25rem;
+  }
+}
+
+/* Mobile lightbox: use the long screen edge for wide portfolio screenshots */
+@media (max-width: 640px) and (orientation: portrait) {
+  .showcase-lightbox.is-open:not(.showcase-lightbox--landscape-locked) .showcase-lightbox__stage {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100vh;
+    height: 100vw;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+
+  .showcase-lightbox.is-open:not(.showcase-lightbox--landscape-locked) .showcase-lightbox__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: none;
+    height: 100%;
+  }
+
+  .showcase-lightbox.is-open:not(.showcase-lightbox--landscape-locked) .showcase-lightbox__image {
+    max-width: 100%;
+    max-height: calc(100vw - 3.5rem);
+  }
+
+  .showcase-lightbox__rotate-hint {
+    display: none;
+  }
+}
+
+@media (max-width: 896px) and (orientation: landscape) {
+  .showcase-lightbox.is-open {
+    padding: 0.35rem;
+  }
+
+  .showcase-lightbox.is-open .showcase-lightbox__stage {
+    width: min(98vw, 1800px);
+    max-height: 96vh;
+  }
+
+  .showcase-lightbox.is-open .showcase-lightbox__image {
+    max-width: calc(100vw - 5rem);
+    max-height: calc(100vh - 1.25rem);
+  }
+
+  .showcase-lightbox__rotate-hint {
+    display: none;
+  }
+}
+
+.showcase-lightbox__rotate-hint {
+  display: none;
+  position: fixed;
+  top: max(0.75rem, env(safe-area-inset-top, 0.75rem));
+  left: 50%;
+  z-index: 2;
+  transform: translateX(-50%);
+  margin: 0;
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(17, 17, 17, 0.9);
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-align: center;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.showcase-lightbox.is-open.showcase-lightbox--rotate-hint .showcase-lightbox__rotate-hint {
+  display: block;
 }

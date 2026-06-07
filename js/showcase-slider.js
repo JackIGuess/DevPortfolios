@@ -1,6 +1,56 @@
 (function () {
   const sliderRegistry = new WeakMap();
   let activeSlider = null;
+  const mobileQuery = window.matchMedia("(max-width: 640px)");
+  const portraitQuery = window.matchMedia("(orientation: portrait)");
+  let orientationLocked = false;
+
+  function syncRotateHint(lightbox) {
+    if (!lightbox) return;
+    const showHint =
+      mobileQuery.matches &&
+      portraitQuery.matches &&
+      !lightbox.classList.contains("showcase-lightbox--landscape-locked");
+    lightbox.classList.toggle("showcase-lightbox--rotate-hint", showHint);
+  }
+
+  async function tryLandscapeLock(lightbox) {
+    if (!mobileQuery.matches || !lightbox) return;
+
+    const orientation = screen.orientation;
+    if (!orientation || typeof orientation.lock !== "function") {
+      syncRotateHint(lightbox);
+      return;
+    }
+
+    try {
+      await orientation.lock("landscape");
+      orientationLocked = true;
+      lightbox.classList.add("showcase-lightbox--landscape-locked");
+      lightbox.classList.remove("showcase-lightbox--rotate-hint");
+    } catch {
+      syncRotateHint(lightbox);
+    }
+  }
+
+  function releaseLandscapeLock(lightbox) {
+    if (lightbox) {
+      lightbox.classList.remove("showcase-lightbox--landscape-locked", "showcase-lightbox--rotate-hint");
+    }
+
+    if (!orientationLocked || !screen.orientation || typeof screen.orientation.unlock !== "function") {
+      orientationLocked = false;
+      return;
+    }
+
+    try {
+      screen.orientation.unlock();
+    } catch {
+      /* ignore unsupported unlock */
+    }
+
+    orientationLocked = false;
+  }
 
   function initShowcaseSlider(root) {
     const slides = Array.from(root.querySelectorAll(".showcase-slider__slide"));
@@ -72,6 +122,8 @@
     lightbox.classList.add("is-open");
     lightbox.setAttribute("aria-hidden", "false");
     document.body.classList.add("showcase-lightbox-open");
+    syncRotateHint(lightbox);
+    tryLandscapeLock(lightbox);
 
     lightbox.querySelector(".showcase-lightbox__nav--prev")?.focus();
   }
@@ -81,6 +133,7 @@
     if (!lightbox || !lightbox.classList.contains("is-open")) return;
 
     const image = lightbox.querySelector(".showcase-lightbox__image");
+    releaseLandscapeLock(lightbox);
     lightbox.classList.remove("is-open");
     lightbox.hidden = true;
     lightbox.setAttribute("aria-hidden", "true");
@@ -158,7 +211,22 @@
     });
   }
 
+  function initLightboxOrientationListeners() {
+    const lightbox = document.getElementById("showcase-lightbox");
+    if (!lightbox) return;
+
+    const onOrientationChange = () => {
+      if (!lightbox.classList.contains("is-open")) return;
+      syncRotateHint(lightbox);
+    };
+
+    portraitQuery.addEventListener("change", onOrientationChange);
+    mobileQuery.addEventListener("change", onOrientationChange);
+    window.addEventListener("orientationchange", onOrientationChange);
+  }
+
   document.querySelectorAll("[data-showcase-slider]").forEach(initShowcaseSlider);
   initShowcaseCards();
   initShowcaseLightbox();
+  initLightboxOrientationListeners();
 })();
